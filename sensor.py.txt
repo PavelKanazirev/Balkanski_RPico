@@ -1,0 +1,12 @@
+from hcsr04 import HCSR04
+from time import sleep
+from machine import Pin
+
+buzzer=Pin(15,Pin.OUT)
+sensor = HCSR04(trigger_pin=2, echo_pin=3, echo_timeout_us=10000)
+
+while True:
+    distance = sensor.distance_cm()
+    print('Distance:', int(distance), 'cm')
+    sleep(1)
+
